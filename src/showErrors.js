@@ -38,6 +38,11 @@
           blurred = true;
           return toggleClasses(formCtrl[inputName].$invalid);
         });
+	scope.$watch(function(){
+	  return formCtrl && formCtrl.$submitted && formCtrl[inputName].$invalid
+	},function(invalid){
+	  return toggleClasses(invalid);
+	});
         scope.$watch(function() {
           return formCtrl[inputName] && formCtrl[inputName].$invalid;
         }, function(invalid) {
